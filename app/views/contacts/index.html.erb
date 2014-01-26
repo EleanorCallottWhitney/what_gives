@@ -1,0 +1,36 @@
+<h1>Contacts</h1>
+
+<%= link_to "Add a new contact", new_contact_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.first_name %></td>
+        <td><%= contact.last_name %></td>
+        <td><%= contact.company %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.address %></td>
+        <td><%= contact.linked_in %></td>
+        <td><%= contact.bio %></td>
+        <td><%= link_to "Update Contact", edit_contact_path(contact) %>
+        <%= link_to "Delete Contact", method: :Delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

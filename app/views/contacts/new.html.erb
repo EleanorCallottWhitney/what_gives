@@ -1,0 +1,29 @@
+<h1>Add a new contact </h1>
+
+<%= form_for @contact do |form| %>
+	<%= form.label :first_name %>
+	<%= form.text_field :first_name %>
+	<br/>
+	<%= form.label :last_name %>
+	<%= form.text_field :last_name %>
+	<br/>
+	<%= form.label :company %>
+	<%= form.text_field :company %>
+	<br/>
+	<%= form.label :email %>
+	<%= form.text_area :email %>
+	<br/>
+	<%= form.label :address %>
+	<%= form.text_area :address %>
+	<br/>
+	<%= form.label :linked_in %>
+	<%= form.text_area :linked_in %>
+	<br/>
+	<%= form.label :bio %>
+	<%= form.text_area :bio %>
+	<br/>
+	<%= form.submit %>
+<% end %>
+
+<%= link_to 'Back', contacts_path %>
+

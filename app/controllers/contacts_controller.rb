@@ -13,13 +13,13 @@ class ContactsController < ApplicationController
 	end
 
 	def create
-		@Contact = Contact.create(contact_parmas)
+		@contact = Contact.create(contact_params)
   	if @contact.save
   		redirect_to "/contacts/#{@contact.id}"
   	else
   		flash[:error] = "Sorry! Error in creating your contact."
   		redirect_to new_contact_path	
-  	end	
+  	end		
 	end
 
 	def edit

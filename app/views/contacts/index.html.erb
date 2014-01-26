@@ -1,5 +1,6 @@
 <h1>Contacts</h1>
 
+<%= link_to "Home", root_path %>
 <%= link_to "Add a new contact", new_contact_path %>
 
 <table>
@@ -27,7 +28,7 @@
         <td><%= contact.linked_in %></td>
         <td><%= contact.bio %></td>
         <td><%= link_to "Update Contact", edit_contact_path(contact) %>
-        <%= link_to "Delete Contact", method: :Delete %></td>
+        <%= link_to "Delete Contact", contact_path(contact), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

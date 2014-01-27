@@ -23,6 +23,34 @@
 	<%= form.text_area :bio %>
 	<br/>
 <% end %>
-
+<br/>
+<%= link_to 'Edit', edit_contact_path %>
 <%= link_to 'Back', contacts_path %>
+<br/>
+<h2> Interactions </h2>
 
+<% @contact.interactions.each do |interaction| %>
+
+<h3><%= interaction.month %> <%= interaction.month %> <%= interaction.year %></h3>
+<p><%= interaction.notes %></p> 
+<br/>
+
+<% end %>
+
+<%= form_for([@contact, @interaction]) do |f|  %>
+
+<%= f.label :month %>
+<%= f.text_field :month %>
+<br/>
+<%= f.label :day %>
+<%= f.text_area :day %>
+<br/>
+<%= f.label :year %>
+<%= f.text_field :year %>
+<br/>
+<%= f.label :notes %>
+<%= f.text_area :notes %>
+<br/>
+<%= f.submit %>
+
+<% end %>	

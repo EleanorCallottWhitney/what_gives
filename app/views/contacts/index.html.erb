@@ -27,6 +27,7 @@
         <td><%= contact.address %></td>
         <td><%= contact.linked_in %></td>
         <td><%= contact.bio %></td>
+        <td><%= link_to "View Contact", contact_path(contact) %></td>
         <td><%= link_to "Update Contact", edit_contact_path(contact) %>
         <%= link_to "Delete Contact", contact_path(contact), method: :delete %></td>
       </tr>

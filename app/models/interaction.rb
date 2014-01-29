@@ -1,3 +1,3 @@
-class Interaction < ActiveRecord::Base
-  belongs_to :contact
-end
+#class Interaction < ActiveRecord::Base
+  #belongs_to :contact
+#end

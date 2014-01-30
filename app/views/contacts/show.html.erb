@@ -1,56 +1,41 @@
 <h1><%= @contact.first_name %> <%= @contact.last_name %></h1>
 
-<%= form_for @contact do |form| %>
-	<%= form.label :first_name %>
-	<%= form.text_field :first_name %>
-	<br/>
-	<%= form.label :last_name %>
-	<%= form.text_field :last_name %>
-	<br/>
-	<%= form.label :company %>
-	<%= form.text_field :company %>
-	<br/>
-	<%= form.label :email %>
-	<%= form.text_area :email %>
-	<br/>
-	<%= form.label :address %>
-	<%= form.text_area :address %>
-	<br/>
-	<%= form.label :linked_in %>
-	<%= form.text_area :linked_in %>
-	<br/>
-	<%= form.label :bio %>
-	<%= form.text_area :bio %>
-	<br/>
-<% end %>
-<br/>
-<%= link_to 'Edit', edit_contact_path %>
-<%= link_to 'Back', contacts_path %>
-<br/>
-<!-- <h2> Interactions </h2>
 
-<% @contact.interactions.each do |interaction| %>
+	<%= @contact.company %>
+	<br/>
+	
+	<%= @contact.email %>
+	<br/>
+	
+	<%= @contact.address %>
+	<br/>
+	
+	<%= @contact.linked_in %>
+	<br/>
 
-<h3><%= interaction.month %> <%= interaction.month %> <%= interaction.year %></h3>
-<p><%= interaction.notes %></p> 
-<br/>
+	<%= @contact.bio %>
 
-<% end %>
+	<br/>
+	<%= link_to 'Edit', edit_contact_path %>
+	<%= link_to 'Back', contacts_path %>
+	<br/>
 
-<%= form_for([@contact, @interaction]) do |f|  %>
+	<h2>Interactions</h2>
+	<%= form_for [@contact, @interaction] do |f|  %>
+		<%= f.label :date %>
+		<%= f.date_select :date %>
+		<br/>
+		<%= f.label :note %>
+		<%= f.text_area :note %>
+		<br/>
+		<%= f.submit %>
+	<% end %> 
 
-<%= f.label :month %>
-<%= f.text_field :month %>
-<br/>
-<%= f.label :day %>
-<%= f.text_area :day %>
-<br/>
-<%= f.label :year %>
-<%= f.text_field :year %>
-<br/>
-<%= f.label :notes %>
-<%= f.text_area :notes %>
-<br/>
-<%= f.submit %>
+	<% @contact.interactions.each do |interaction| %>
+		<p><%= interaction.date %></p>
+		<p><%= interaction.note %> </p>
+		<%= link_to 'Edit', edit_contact_interaction_path(interaction.contact_id, interaction.id) %>
+	<% end %>
 
-<% end %>	-->
+
+

@@ -1,7 +1,5 @@
 <h1>Contacts</h1>
 
-<%= link_to "Home", root_path %>
-<%= link_to "Add a new contact", new_contact_path %>
 
 <table>
   <thead>
@@ -20,7 +18,7 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.first_name %></td>
+        <td><%= link_to contact.first_name, contact_path(contact) %></td>
         <td><%= contact.last_name %></td>
         <td><%= contact.company %></td>
         <td><%= contact.email %></td>

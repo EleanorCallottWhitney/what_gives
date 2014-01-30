@@ -29,10 +29,8 @@ ActiveRecord::Schema.define(version: 20140126163614) do
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
 
   create_table "interactions", force: true do |t|
-    t.integer  "month"
-    t.integer  "day"
-    t.integer  "year"
-    t.text     "notes"
+    t.date     "date"
+    t.text     "note"
     t.integer  "contact_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -3,11 +3,11 @@ WhatGives::Application.routes.draw do
   devise_for :users
   
   root 'home#index'
-  
+
   resources :users 
-  resources :contacts #do
-    #resources :interactions
-  #end 
+  resources :contacts do
+    resources :interactions
+  end 
 end 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

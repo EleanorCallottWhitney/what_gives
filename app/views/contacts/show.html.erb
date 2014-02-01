@@ -37,5 +37,23 @@
 		<%= link_to 'Delete', contact_interaction_path(interaction.contact_id, interaction.id), confirm: 'Are you sure?', method: :delete %>
 	<% end %>
 
+	<h2>Donations</h2>
+	<%= form_for [@contact, @donation] do |f|  %>
+		<%= f.label :date %>
+		<%= f.date_select :date %>
+		<br/>
+		<%= f.label :amount %>
+		<%= f.text_field :amount %>
+		<br/>
+		<%= f.submit %>
+	<% end %> 
+
+	<% @contact.donations.each do |donation| %>
+		<p><%= donation.date %></p>
+		<p><%= number_to_currency(donation.amount) %> </p>
+		<%= link_to 'Delete', contact_donation_path(donation.contact_id, donation.id), confirm: 'Are you sure?', method: :delete %>
+	<% end %>
+
+	
 
 

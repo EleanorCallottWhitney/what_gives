@@ -1,6 +1,5 @@
 class DonationsController < ApplicationController
 
-
  def create
 		@contact = Contact.find(params[:contact_id])
 		@donation = Donation.create(donation_params)

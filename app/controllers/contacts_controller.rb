@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
 	def show
 		@contact = Contact.find(params[:id])
 		@interaction = Interaction.new
+		@donation = Donation.new
 	end
 
 	def new

@@ -34,7 +34,7 @@
 	<% @contact.interactions.each do |interaction| %>
 		<p><%= interaction.date %></p>
 		<p><%= interaction.note %> </p>
-		<%= link_to 'Edit', edit_contact_interaction_path(interaction.contact_id, interaction.id) %>
+		<%= link_to 'Delete', contact_interaction_path(interaction.contact_id, interaction.id), confirm: 'Are you sure?', method: :delete %>
 	<% end %>
 
 

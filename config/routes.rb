@@ -7,6 +7,7 @@ WhatGives::Application.routes.draw do
   resources :users 
   resources :contacts do
     resources :interactions
+    resources :donations
   end 
 end 
   # The priority is based upon order of creation: first created -> highest priority.

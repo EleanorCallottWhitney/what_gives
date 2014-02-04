@@ -6,6 +6,9 @@
 	
 	<%= @contact.email %>
 	<br/>
+
+	<%= @contact.phone_number %>
+	<br/>
 	
 	<%= @contact.address %>
 	<br/>
@@ -53,6 +56,10 @@
 		<p><%= number_to_currency(donation.amount) %> </p>
 		<%= link_to 'Delete', contact_donation_path(donation.contact_id, donation.id), confirm: 'Are you sure?', method: :delete %>
 	<% end %>
+
+	
+
+	 
 
 	
 

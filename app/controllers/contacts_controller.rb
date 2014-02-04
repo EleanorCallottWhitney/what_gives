@@ -1,9 +1,15 @@
 class ContactsController < ApplicationController
 
 	def index
-		@contacts = Contact.all
+		@contacts = Contact.search_for(params[:query])
+		#@contacts = Contact.all
+		#@contacts = Contact.where("first_name OR last_name LIKE?", "%#{params[:query]}%")
 	end
 
+	#def search
+		#@contacts = Contact.where("first_name OR last_name LIKE?", "%#{params[:query]}%")
+	#end
+		
 	def show
 		@contact = Contact.find(params[:id])
 		@interaction = Interaction.new
@@ -42,6 +48,6 @@ class ContactsController < ApplicationController
 
 private
 	def contact_params
-		params.require(:contact).permit(:first_name, :last_name, :company, :email, :address, :linked_in, :bio)
+		params.require(:contact).permit(:first_name, :last_name, :company, :email, :address, :linked_in, :bio, :phone_number)
   end
 end  	

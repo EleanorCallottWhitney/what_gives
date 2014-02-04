@@ -1,9 +1,15 @@
 <h1>Contacts</h1>
 
+<%= form_tag contacts_path method: :get do %>
+<%= text_field_tag :query, params[:query],  placeholder: "Search Here" %>
+<%= submit_tag "Search Contacts" %>
+<% end %>
+
 
 <table>
   <thead>
     <tr>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,6 +28,7 @@
         <td><%= contact.last_name %></td>
         <td><%= contact.company %></td>
         <td><%= contact.email %></td>
+        <td><%= number_to_phone(contact.phone_number) %></td>
         <td><%= contact.address %></td>
         <td><%= contact.linked_in %></td>
         <td><%= contact.bio %></td>

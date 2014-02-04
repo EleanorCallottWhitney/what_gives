@@ -3,4 +3,8 @@ class Contact < ActiveRecord::Base
 	belongs_to :user
 	has_many :interactions
 	has_many :donations
+
+	def self.search_for(query)
+ 		Contact.where("first_name LIKE?" OR "last_name LIKE?", "%#{query}%")
+	end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140202195012) do
+ActiveRecord::Schema.define(version: 20140205001625) do
 
   create_table "contacts", force: true do |t|
     t.string   "first_name"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140202195012) do
   add_index "donations", ["contact_id"], name: "index_donations_on_contact_id"
 
   create_table "interactions", force: true do |t|
-    t.date     "date"
+    t.datetime "interacted_at"
     t.text     "note"
     t.integer  "contact_id"
     t.datetime "created_at"

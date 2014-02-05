@@ -25,8 +25,8 @@
 
 	<h2>Interactions</h2>
 	<%= form_for [@contact, @interaction] do |f|  %>
-		<%= f.label :date %>
-		<%= f.date_select :date %>
+		<%= f.label :interacted_at %>
+		<%= f.date_select :interacted_at %>
 		<br/>
 		<%= f.label :note %>
 		<%= f.text_area :note %>
@@ -35,7 +35,7 @@
 	<% end %> 
 
 	<% @contact.interactions.each do |interaction| %>
-		<p><%= interaction.date %></p>
+		<p><%= interaction.interacted_at %></p>
 		<p><%= interaction.note %> </p>
 		<%= link_to 'Delete', contact_interaction_path(interaction.contact_id, interaction.id), confirm: 'Are you sure?', method: :delete %>
 	<% end %>

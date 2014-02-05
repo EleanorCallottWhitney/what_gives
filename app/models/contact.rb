@@ -5,6 +5,6 @@ class Contact < ActiveRecord::Base
 	has_many :donations
 
 	def self.search_for(query)
- 		Contact.where("first_name LIKE?" OR "last_name LIKE?", "%#{query}%")
+ 		Contact.where("first_name LIKE :query OR last_name LIKE :query OR company LIKE :query", query: "%#{query}%")
 	end
 end

@@ -1,11 +1,11 @@
 <h1>Contacts</h1>
 
-<%= form_tag contacts_path method: :get do %>
+<%= form_tag contacts_path, method: :get do %>
 <%= text_field_tag :query, params[:query],  placeholder: "Search Here" %>
 <%= submit_tag "Search Contacts" %>
 <% end %>
 
-
+  
 <table>
   <thead>
     <tr>

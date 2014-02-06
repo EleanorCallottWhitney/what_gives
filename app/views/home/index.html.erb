@@ -1,4 +1,7 @@
-<h1>What Gives?</h1>
+<body class="homebg">
+
+</body>
+<h1 class="col-lg-12">What Gives?</h1>
 <br/>
 <h2>Who Gives?</h2>
 <br/>
@@ -6,16 +9,14 @@
 <br/>
 <p>Track your donors better</p>
 <br/>
-<%= link_to "View and manage your contacts", contacts_path %>
+<div class="text">
+	<%= link_to "View and manage your contacts", contacts_path %>
+</div>
 <br/>
+<br><br>
 
-<ul>
-	<li>Log in and log out</li>
-	<li>View and search list of contacts</li>
-	<li>Add and edit contacts</li>
-	<li>Add interactions to contacts</li>
-	<li>Add donations to contacts</li>
-	<li>Add tags to users</li>
-	<li>Search for contacts by users and tags</li>
-	<li>Add paperclip to show contact image</li>
-</ul>
+<div class="row">
+  <div class="col-md-4"><button class="btn btn-primary"><%= link_to "Contacts", contacts_path %></button></div>
+  <div class="col-md-4"><p>Total Donations</p><button class="btn btn-primary"><%= Donation.total_donations %></button></div>
+  <div class="col-md-4"><p>Something else here</p></div>
+</div>

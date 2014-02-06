@@ -26,7 +26,7 @@
 	<h2>Interactions</h2>
 	<%= form_for [@contact, @interaction] do |f|  %>
 		<%= f.label :interacted_at %>
-		<%= f.date_select :interacted_at %>
+		<%= f.datetime_select :interacted_at %>
 		<br/>
 		<%= f.label :note %>
 		<%= f.text_area :note %>
@@ -56,6 +56,9 @@
 		<p><%= number_to_currency(donation.amount) %> </p>
 		<%= link_to 'Delete', contact_donation_path(donation.contact_id, donation.id), confirm: 'Are you sure?', method: :delete %>
 	<% end %>
+
+	<h3>Total Donations </h3>
+	<%= number_to_currency(@contact.donations.total_donations) %>
 
 	
 

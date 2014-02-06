@@ -1,7 +1,8 @@
 class ContactsController < ApplicationController
 
 	def index
-		@contacts = Contact.search_for(params[:query])
+		@contacts = current_user.contacts.search_for(params[:query])
+		#@contacts = Contact.contacts.search_for(params[:query])
 		#@contacts = Contact.all
 		#@contacts = Contact.where("first_name OR last_name LIKE?", "%#{params[:query]}%")
 	end
@@ -11,7 +12,7 @@ class ContactsController < ApplicationController
 	#end
 		
 	def show
-		@contact = Contact.find(params[:id])
+		@contact = current_user.contacts.find(params[:id])
 		@interaction = Interaction.new
 		@donation = Donation.new
 	end
@@ -21,7 +22,8 @@ class ContactsController < ApplicationController
 	end
 
 	def create
-		@contact = Contact.create(contact_params)
+		@contact = current_user.contacts.new(contact_params)
+		#@contact = Contact.create(contact_params)
   	if @contact.save
   		redirect_to "/contacts/#{@contact.id}"
   	else

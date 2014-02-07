@@ -1,5 +1,11 @@
+/** {
+	border: black 1px solid
+}
+*/
 body {
-	background-color: white
+	background-color: white;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .text a {
@@ -13,4 +19,10 @@ body {
 
 .homebg {
 	background-color: silver;
+}
+
+.contact_form {
+margin-left: 	2em;
+margin-right: 2em;
+margin-bottom: 2em;
 }

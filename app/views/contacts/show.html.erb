@@ -7,7 +7,7 @@
 	<%= @contact.email %>
 	<br/>
 
-	<%= @contact.phone_number %>
+	<%= number_to_phone(@contact.phone_number) %>
 	<br/>
 	
 	<%= @contact.address %>

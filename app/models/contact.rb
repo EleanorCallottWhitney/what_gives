@@ -7,4 +7,12 @@ class Contact < ActiveRecord::Base
 	def self.search_for(query)
  		Contact.where("first_name LIKE :query OR last_name LIKE :query OR company LIKE :query", query: "%#{query}%")
 	end
+
+	def total_donations
+		donations.sum(:amount)
+	end	
+
+	def high_roller?
+		total_donations > 500 
+	end	
 end

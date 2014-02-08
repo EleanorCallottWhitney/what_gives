@@ -15,6 +15,7 @@ class ContactsController < ApplicationController
 		@contact = current_user.contacts.find(params[:id])
 		@interaction = Interaction.new
 		@donation = Donation.new
+		#@high_roller = Donation.high_roller
 	end
 
 	def new

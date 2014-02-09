@@ -4,6 +4,9 @@ WhatGives::Application.routes.draw do
   
   root 'home#index'
 
+  get '/home/about.html', to: "home#about", as: :about
+  #get 'tags/:tag', to: 'contacts#index', as: :tag
+
   resources :users 
   resources :contacts do
     resources :interactions

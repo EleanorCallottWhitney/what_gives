@@ -1,75 +1,71 @@
-<h1>Who Gives?</h1>
-<br/>
-<h2><%= @contact.first_name %> <%= @contact.last_name %></h2>
+<div class="page-header">
+  <h1><%= @contact.first_name %> <%= @contact.last_name %><small> gives a...</small></h1>
+</div>
 
 <div class="row">
 	<div class="col-md-6">
-	<%= @contact.company %>
+	<b>Company:</b><%= @contact.company %>
 	<br/>
-	
-	<%= @contact.email %>
+	<b>Email:</b><%= @contact.email %>
 	<br/>
-
-	<%= number_to_phone(@contact.phone_number) %>
+	<b>Phone:</b><%= number_to_phone(@contact.phone_number) %>
 	<br/>
-	
-	<%= @contact.address %>
+	<b>Address:</b><%= @contact.address %>
 	<br/>
-	
-	<%= @contact.linked_in %>
+	<b>LinkedIn</b><%= @contact.linked_in %>
 	<br/>
-
-	<%= @contact.bio %>
-
+	<b>Bio:</b><%= @contact.bio %>
 	<br/>
-	<%= link_to 'Edit', edit_contact_path %>
-	<%= link_to 'Back', contacts_path %>
+	<p><%= link_to 'Edit', edit_contact_path, class: "btn btn-info"%>
+	<%= link_to 'Back', contacts_path, class: "btn btn-info" %>
 	</div>
 
 	<div class="col-md-6">
-	<h3>How much did they give?</h3>
-	<%= number_to_currency(@contact.total_donations) %>
+	<h4>How much did they give?</h4>
+	<b><%= number_to_currency(@contact.total_donations) %></b>
 	<br/>
 	<% if @contact.high_roller? %>
-	<p>Gives a damn!</p>
+		<p><b><i>Gives a damn!</i></b></p>
 	<% end %>
-	<br/>
-	<h3>When and in what amount?</h3>
+
+	<h5>When and in what amount?</h5>
 	<%= form_for [@contact, @donation] do |f|  %>
 		<%= f.label :date %>
 		<%= f.date_select :date %>
-		<br/>
+	<br/>
 		<%= f.label :amount %>
 		<%= f.text_field :amount %>
-		<br/>
+	<br/>
 		<%= f.submit %>
 	<% end %> 
 
 	<% @contact.donations.each do |donation| %>
 		<p><%= donation.date %></p>
-		<p><%= number_to_currency(donation.amount) %> </p>
-		<%= link_to 'Delete', contact_donation_path(donation.contact_id, donation.id), confirm: 'Are you sure?', method: :delete %>
+		<p><b><%= number_to_currency(donation.amount) %></b></p>
+		<%= link_to 'Delete', contact_donation_path(donation.contact_id, donation.id), confirm: 'Are you sure?', method: :delete, class: "btn btn-info"%>
 	<% end %>
 	</div>
 </div>
 
-	<h2>Interactions</h2>
+<div class="row">
+	<div class="col-lg-12">
+	<h4>Interactions</h4>
 	<%= form_for [@contact, @interaction] do |f|  %>
 		<%= f.label :interacted_at %>
 		<%= f.datetime_select :interacted_at %>
-		<br/>
+	<br/>
 		<%= f.label :note %>
 		<%= f.text_area :note %>
-		<br/>
+	<br/>
 		<%= f.submit %>
 	<% end %> 
 
 	<% @contact.interactions.each do |interaction| %>
 		<p><%= interaction.interacted_at %></p>
 		<p><%= interaction.note %> </p>
-		<%= link_to 'Delete', contact_interaction_path(interaction.contact_id, interaction.id), confirm: 'Are you sure?', method: :delete %>
+		<%= link_to 'Delete', contact_interaction_path(interaction.contact_id, interaction.id), confirm: 'Are you sure?', method: :delete, class: "btn btn-info"%>
 	<% end %>
-
+</div>
 
 	
 

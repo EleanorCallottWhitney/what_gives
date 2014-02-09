@@ -8,12 +8,23 @@
 </head>
 <body>
 
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
   <a class="navbar-brand" href="/">What Gives?</a>
   <ul class="nav navbar-nav">
-      <li class="active"><a href="/home">Home</a></li>
-      <li><a href="#">Link</a></li>
+      <li><%= link_to "About", about_path %></li>
+        <% if user_signed_in? %>
+      <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>  
+      <li><p class="navbar-text">What gives <%= current_user.email %>? </p></li>
+      <% else %>
+      <%- if controller_name != 'sessions' %>
+      <li><%= link_to "Sign in", new_session_path(User) %></li>
+    <% end -%>
+      <li>  <%= link_to "Sign up", new_registration_path(User) %></li>
+    <% end %>
    </ul>     
   </div>
 </nav> 
@@ -21,19 +32,7 @@
 	<p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <% if user_signed_in? %>
-  	<p class="user">You are signed in as <%= current_user.email %> </p> 
-    <%= link_to "Home", root_path %>
-    <%= link_to "Add a new contact", new_contact_path %>
-
-  	<%= link_to "Log out", destroy_user_session_path, method: :delete %> 
-  <% else %>
-  	<%- if controller_name != 'sessions' %>
-  		<%= link_to "Sign in", new_session_path(User) %><br />
-		<% end -%>
-  		<%= link_to "Sign up", new_registration_path(User) %><br />
-	<% end -%>	
-
+  
 <%= yield %>
 
 </body>

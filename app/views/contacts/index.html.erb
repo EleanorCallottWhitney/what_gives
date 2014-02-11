@@ -4,9 +4,10 @@
 
 <%= form_tag contacts_path, method: :get do %>
 <%= text_field_tag :query, params[:query],  placeholder: "Who Gives?" %>
-<%= submit_tag "Search Contacts" %>
+<%= submit_tag "Search Contacts", class: "btn btn-info btn-sm" %>
 <% end %>
-
+<br/>
+<%= link_to "Add a new contact", new_contact_path, class: "btn btn-info" %>
   
 <table class="table table-striped">
   <thead>

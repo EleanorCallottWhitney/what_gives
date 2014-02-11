@@ -12,12 +12,12 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Name</th>
       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Company</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Total Donations</th>
       <th></th>
     </tr>
   </thead>
@@ -30,7 +30,7 @@
         <td><%= contact.company %></td>
         <td><%= contact.email %></td>
         <td><%= number_to_phone(contact.phone_number) %></td>
-        <td><%= contact.address %></td>
+        <td><%= number_to_currency(contact.total_donations) %></td>  
         <td><%= link_to "Update", edit_contact_path(contact) %>
         <%= link_to "Delete", contact_path(contact), method: :delete %></td>
       </tr>

@@ -17,7 +17,7 @@
   	<div class="text">
   		<p><b>How much have they given?</b></p>
   	</div>
-  	<button class="btn btn-default"><%= number_to_currency(Donation.total_donations) %></button>
+  	<button class="btn btn-default"><%= number_to_currency(current_user.donations.total_donations) %></button>
   </div>
   <div class="col-md-4"><p></p></div>
 </div>

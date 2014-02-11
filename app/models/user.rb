@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
 has_many :contacts
 has_many :interactions
+has_many :donations, through: :contacts
 
 	def interactions_for(contact)	
 		interactions.where(contact: contact)

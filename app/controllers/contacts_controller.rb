@@ -57,7 +57,7 @@ class ContactsController < ApplicationController
   	redirect_to "/contacts"
   end
   
-  ivate
+  private
   def contact_params
   	params.require(:contact).permit(:first_name, :last_name, :company, :email, :address, :linked_in, :bio, :phone_number, :tag_list)
   end

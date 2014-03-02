@@ -6,6 +6,7 @@ before_filter :authenticate_user!, :except=> :about
 		#redirect_to "/users"
 
 	def index
+    @tags = Contact.tag_counts_on(:tags)
 	end	
 
 	def about
